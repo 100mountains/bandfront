@@ -360,7 +360,7 @@ div.storefront-sorting
 
 .product-downloads h3 {
     font-family: 'BluuNext-Titling', Georgia, serif !important;
-    font-size: clamp(1.2rem, 2.5vw, 1.7rem) !important;
+    font-size: clamp(1rem, 2vw, 1.3rem) !important;
     font-weight: normal !important;
     line-height: 1 !important;
     letter-spacing: -0.01em !important;
