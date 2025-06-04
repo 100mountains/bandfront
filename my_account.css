@@ -1,0 +1,196 @@
+/* my-account.css */
+
+.woocommerce-order-overview li,
+.woocommerce-order-details .woocommerce-table td,
+.woocommerce-customer-details address,
+.woocommerce-customer-details dt,
+.woocommerce-customer-details dd {
+  color: #ffffff !important;
+}
+
+
+/* Apply alacti font family to all My Account elements */
+.woocommerce-account .woocommerce-MyAccount-content,
+.woocommerce-account .woocommerce-MyAccount-navigation {
+    font-family: 'Alacti', sans-serif;
+}
+
+/* Navigation styling */
+.woocommerce-MyAccount-navigation {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.woocommerce-MyAccount-navigation ul {
+    margin: 0;
+    padding: 0;
+}
+
+.woocommerce-MyAccount-navigation ul li {
+    list-style: none;
+    margin-bottom: 15px;
+    border: none;
+}
+
+.woocommerce-MyAccount-navigation ul li a {
+    font-family: 'Alacti', sans-serif !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    color: #8b5cf6;
+    text-decoration: none;
+    padding: 10px 0;
+    display: block;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.woocommerce-MyAccount-navigation ul li a:hover {
+    color: #a78bfa;
+    transform: translateX(5px);
+}
+
+/* Active state */
+.woocommerce-MyAccount-navigation ul li.is-active a {
+    color: #fff;
+}
+
+.woocommerce-MyAccount-navigation ul li.is-active a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #8b5cf6;
+}
+
+/* Remove icons
+.woocommerce-MyAccount-navigation ul li a::before {
+    display: none;
+} */
+
+/* Content area */
+.woocommerce-MyAccount-content {
+    background: transparent;
+    color: #f5f5f5;
+}
+
+/* Black background for Account Details page only */
+.woocommerce-MyAccount-content .edit-account.woocommerce-EditAccountForm {
+    background: #000 !important;
+    padding: 2em;
+    border-radius: 8px;
+}
+
+.woocommerce-MyAccount-content .edit-account.woocommerce-EditAccountForm fieldset {
+    background: #111 !important;
+    border-radius: 6px;
+    padding: 1em;
+}
+
+/* Legend in Account Details form */
+.woocommerce-MyAccount-content .edit-account.woocommerce-EditAccountForm fieldset legend {
+    background: #000 !important;
+
+    padding: 0.5em 1em;
+    border-radius: 4px;
+}
+
+/* Headers in content area */
+.woocommerce-MyAccount-content h2,
+.woocommerce-MyAccount-content h3 {
+    font-family: 'BluuNext-Titling', Georgia, serif !important;
+    color: #FD8F35;
+    margin-bottom: 20px;
+}
+
+/* Tables */
+.woocommerce-MyAccount-content table.shop_table {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.woocommerce-MyAccount-content table.shop_table th {
+    background: #000;
+    color: #fff;
+    font-family: 'Alacti', sans-serif;
+    padding: 15px;
+}
+
+.woocommerce-MyAccount-content table.shop_table td {
+    padding: 15px;
+    border-bottom: 1px solid #222;
+    color: #f5f5f5;
+}
+
+/* Order numbers */
+.woocommerce-orders-table__cell-order-number a {
+    color: #8b5cf6;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.woocommerce-orders-table__cell-order-number a:hover {
+    color: #a78bfa;
+}
+
+/* Buttons */
+.woocommerce-MyAccount-content .button {
+    background: #f5f5f5 !important;
+    color: #000 !important;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Alacti', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.woocommerce-MyAccount-content .button:hover {
+    background: #f0f0f0 !important;
+    transform: translateY(-2px);
+}
+
+/* Forms */
+.woocommerce-MyAccount-content input[type="text"],
+.woocommerce-MyAccount-content input[type="email"],
+.woocommerce-MyAccount-content input[type="tel"],
+.woocommerce-MyAccount-content input[type="password"],
+.woocommerce-MyAccount-content select {
+    background: #f5f5f5;
+    border: 1px solid #333;
+    color: #000;
+    padding: 12px 15px;
+    border-radius: 4px;
+    font-family: 'Alacti', sans-serif;
+}
+
+
+
+/* Remove red asterisks */
+.woocommerce-MyAccount-content abbr.required {
+    display: none;
+}
+
+/* Responsive */
+@media (min-width: 769px) {
+    .woocommerce-account .woocommerce-MyAccount-navigation {
+        float: left;
+        width: 25%;
+        margin-right: 5%;
+    }
+    
+    .woocommerce-account .woocommerce-MyAccount-content {
+        float: left;
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .woocommerce-MyAccount-navigation,
+    .woocommerce-MyAccount-content {
+        float: none;
+        width: 100%;
+    }
+}
