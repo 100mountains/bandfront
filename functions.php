@@ -63,3 +63,34 @@ function enqueue_download_all_script() {
     }
 }
 add_action('wp_enqueue_scripts', 'enqueue_download_all_script');
+
+// 1. Register new endpoint for "vault"
+function storefront_add_vault_endpoint() {
+    add_rewrite_endpoint( 'vault', EP_ROOT | EP_PAGES );
+}
+add_action( 'init', 'storefront_add_vault_endpoint' );
+
+// 2. Add new query var
+function storefront_vault_query_vars( $vars ) {
+    $vars[] = 'vault';
+    return $vars;
+}
+add_filter( 'query_vars', 'storefront_vault_query_vars', 0 );
+
+// 3. Insert the new endpoint into the My Account menu
+function storefront_add_vault_link_my_account( $items ) {
+    // Place 'vault' before logout
+    $logout = $items['customer-logout'];
+    unset($items['customer-logout']);
+    $items['vault'] = 'Vault';
+    $items['customer-logout'] = $logout;
+    return $items;
+}
+add_filter( 'woocommerce_account_menu_items', 'storefront_add_vault_link_my_account' );
+
+// 4. Add content to the new tab
+function storefront_vault_content() {
+    include get_stylesheet_directory() . '/myaccount-vault.php';
+}
+add_action( 'woocommerce_account_vault_endpoint', 'storefront_vault_content' );
+

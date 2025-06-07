@@ -18,6 +18,48 @@ Log out – fa-sign-out-alt
 
 --------
 
+
+---- functions addition for test thank you page --- 
+
+/**
+ * @snippet       View Thank You Page @ Edit Order Admin
+ * @how-to        businessbloomer.com/woocommerce-customization
+ * @author        Rodolfo Melogli, Business Bloomer
+ * @compatible    WooCommerce 9
+ * @community     https://businessbloomer.com/club/
+ */
+ 
+add_filter( 'woocommerce_order_actions', 'bbloomer_show_thank_you_page_order_admin_actions', 9999, 2 );
+  
+function bbloomer_show_thank_you_page_order_admin_actions( $actions, $order ) {
+   if ( $order->has_status( wc_get_is_paid_statuses() ) ) {
+      $actions['view_thankyou'] = 'Display thank you page';
+   }
+   return $actions;
+}
+  
+add_action( 'woocommerce_order_action_view_thankyou', 'bbloomer_redirect_thank_you_page_order_admin_actions' );
+  
+function bbloomer_redirect_thank_you_page_order_admin_actions( $order ) {
+   $url = add_query_arg( 'adm', $order->get_customer_id(), $order->get_checkout_order_received_url() );
+   wp_safe_redirect( $url );
+   exit;
+}
+ 
+add_filter( 'determine_current_user', 'bbloomer_admin_becomes_user_if_viewing_thank_you_page' );
+ 
+function bbloomer_admin_becomes_user_if_viewing_thank_you_page( $user_id ) {
+   if ( ! empty( $_GET['adm'] ) ) {
+      $user_id = wc_clean( wp_unslash( $_GET['adm'] ) );
+   }
+   return $user_id;
+}
+ 
+add_filter( 'woocommerce_order_received_verify_known_shoppers', '__return_false' );
+
+
+-----------
+
 Core CSS Classes and Structure
 Main Container Classes
 css/* Main wrapper */

@@ -14,6 +14,39 @@ Text Domain: storefront-staging
 
 /* Add your custom CSS styles below this line */
 
+/* thankyou page */
+
+.order_details.woocommerce-thankyou-order-details.woocommerce-order-overview
+{
+    font-family: 'BluuNext', Georgia, serif !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+
+    background-color: #000 !important;
+
+}
+
+.woocommerce-order-details .product-name.woocommerce-table__product-name,.product-total, tfoot > tr > th
+{
+
+font-family: 'BluuNext', Georgia, serif !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+
+    background-color: #000 !important;
+
+}
+
+.woocommerce-order-downloads .download-product,.download-remaining,.download-expires,.download-file
+{
+    font-family: 'BluuNext', Georgia, serif !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+
+    background-color: #000 !important;
+
+}
+
 /* FRONT END ADDITIONS NEW */
 
 .site-info
@@ -361,4 +394,36 @@ div.storefront-sorting
     font-weight: normal !important;
     line-height: 1 !important;
     letter-spacing: -0.01em !important;
+}
+
+/* WooCommerce My Account navigation icons */
+.woocommerce-MyAccount-navigation-link--dashboard a::before {
+    font-family: 'FontAwesome';
+    content: "\f0e4"; /* Dashboard icon */
+}
+.woocommerce-MyAccount-navigation-link--orders a::before {
+    font-family: 'FontAwesome';
+    content: "\f291"; /* Shopping cart icon */
+}
+.woocommerce-MyAccount-navigation-link--downloads a::before {
+    font-family: 'FontAwesome';
+    content: "\f019"; /* Download icon */
+}
+.woocommerce-MyAccount-navigation-link--edit-address a::before {
+    font-family: 'FontAwesome';
+    content: "\f015"; /* Home icon */
+}
+.woocommerce-MyAccount-navigation-link--edit-account a::before {
+    font-family: 'FontAwesome';
+    content: "\f007"; /* User icon */
+}
+.woocommerce-MyAccount-navigation-link--customer-logout a::before {
+    font-family: 'FontAwesome';
+    content: "\f08b"; /* Sign out icon */
+}
+
+/* Add this for the Vault tab (fa-user-secret) */
+.woocommerce-MyAccount-navigation-link--vault a::before {
+    font-family: 'FontAwesome';
+    content: "\f21b";
 }
