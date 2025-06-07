@@ -5,24 +5,14 @@ $vault_content = '
     
     <p>Hello peeps! 😄✨</p>
     
-    <p>🔥 I am now testing this area! Soon I will be able to give codes for products on here - it\'s pretty easy! 🚀</p>
+    <p>🔥 I am now testing this area! We now have a code for use on therob.lol! Add the album to your basket, go to checkout and add the coupon there, you will see the price go to 0. once thats done you can click go to paypal. it wont go to paypal it will just give you the album 🚀</p>
     
     <div class="album-section">
         <h3>🎵 UFORB INSANITY EDITION - The Rob 🎵</h3>
-        <p><strong>🎁 Redeem at:</strong> <a href="https://therobofficial.bandcamp.com/yum" target="_blank">https://therobofficial.bandcamp.com/yum</a></p>
+        <p><strong>🎁 Redeem at:</strong> <a href="https://therob.lol" target="_blank">https://therob.lol</a> (Use in checkout for 100% discount!)</p>
         
         <div class="codes-grid">
-            <code>bd5j-hbjh</code> | <code>sen2-bwyf</code> | <code>prd5-h42m</code> | <code>jl9e-5ruh</code> | <code>7ctf-bdmv</code><br>
-            <code>lhnm-wh88</code> | <code>qqd6-hebn</code> | <code>9r4k-53sj</code> | <code>3xc2-7why</code> | <code>5ejw-j4ar</code><br>
-            <code>g8bc-kp3d</code> | <code>2nx4-gndh</code> | <code>d5eq-3mx5</code> | <code>6j7x-7hhr</code> | <code>kfwh-vvpd</code><br>
-            <code>u5sp-gybc</code> | <code>l6qb-bf4x</code> | <code>4zrw-wqvp</code> | <code>42m4-htt2</code> | <code>ex8q-52uh</code><br>
-            <code>bcz7-bcmv</code> | <code>pqx8-h5bn</code> | <code>8bcy-ersj</code> | <code>xh6g-5s65</code> | <code>hq3n-bdtf</code><br>
-            <code>jrxm-xl3m</code> | <code>fxc6-jed6</code> | <code>mcju-ybwy</code> | <code>9pfd-7xhr</code> | <code>y7dc-jqpd</code><br>
-            <code>354e-y8bc</code> | <code>w8pf-bn4x</code> | <code>szfl-wmvp</code> | <code>s3ah-hgt2</code> | <code>uulh-y7wh</code><br>
-            <code>xmep-bvl5</code> | <code>h86b-c9pr</code> | <code>qu3w-w87d</code> | <code>fwvq-h2qh</code> | <code>lsg9-5d65</code><br>
-            <code>cquu-bctf</code> | <code>ebwv-xh3m</code> | <code>bds8-j5d6</code> | <code>a4q2-y3wy</code> | <code>8erw-u4hr</code><br>
-            <code>jjl9-harn</code> | <code>6fsz-52cj</code> | <code>ud4u-7c4y</code> | <code>mjpx-vh5r</code> | <code>9g7s-652d</code><br>
-            <code>n2ws-yuwh</code> | <code>cggf-czpr</code>
+            <code>jja9w6zt</code>
         </div>
     </div>
     
@@ -70,7 +60,7 @@ $vault_content = '
 }
 
 .album-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #4a5568 0%, #553c9a 100%);
     border-radius: 15px;
     padding: 20px;
     margin: 20px 0;
