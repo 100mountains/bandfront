@@ -94,3 +94,22 @@ function storefront_vault_content() {
 }
 add_action( 'woocommerce_account_vault_endpoint', 'storefront_vault_content' );
 
+function get_blocked_emails() {
+    static $blocked_emails = null;
+    if ($blocked_emails === null) {
+        $file = get_stylesheet_directory() . '/blocked-emails.txt';
+        $blocked_emails = file_exists($file) ?
+            array_map('strtolower', array_map('trim', file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES))) :
+            array();
+    }
+    return $blocked_emails;
+}
+
+function block_specific_emails($errors, $sanitized_user_login, $user_email) {
+    $blocked_emails = get_blocked_emails();
+    if (in_array(strtolower($user_email), $blocked_emails)) {
+        $errors->add('email_blocked', __('This email address is not allowed to register.', 'storefront-staging'));
+    }
+    return $errors;
+}
+add_filter('registration_errors', 'block_specific_emails', 10, 3);
