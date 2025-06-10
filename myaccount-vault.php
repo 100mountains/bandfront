@@ -6,7 +6,12 @@ $vault_content = '
     <p>Hello peeps! 😄✨</p>
     
     <p>🔥 I am now testing this area! We now have a code for use on therob.lol! Add the album to your basket, go to checkout and add the coupon there, you will see the price go to 0. once thats done you can click go to paypal. it wont go to paypal it will just give you the album 🚀</p>
+    <p> 💥 I will be adding more albums and codes soon, so keep checking back! 💥</p>
     
+    <p> 💖 Thank you for your support! 💖</p>
+
+NOTE: The audio processing code is now *FIXED* and you can now download all the audio files in one go! 🎶</p>
+
     <div class="album-section">
         <h3>🎵 UFORB INSANITY EDITION - The Rob 🎵</h3>
         <p><strong>🎁 Redeem at:</strong> <a href="https://therob.lol" target="_blank">https://therob.lol</a> (Use in checkout for 100% discount!)</p>
