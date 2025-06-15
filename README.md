@@ -31,6 +31,12 @@ A WordPress child theme extension for Storefront that transforms WooCommerce int
 - **Blocked Email Registration:**  
   - Prevents registration for emails listed in `blocked-emails.txt`.
 
+### Setting up blocked emails  
+Create a `blocked-emails.txt` file in the theme root with one email address per line.  
+The file is listed in `.gitignore`, so it will never be committed to the repository.  
+This allows each installation to maintain its own private block list.
+
+
 - **Custom Styles and Scripts:**  
   - Enqueues custom CSS for downloads UI.
   - Enqueues and localizes JS for AJAX-powered bulk downloads.
