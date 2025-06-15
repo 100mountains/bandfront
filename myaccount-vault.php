@@ -13,12 +13,7 @@ $vault_content = '
 NOTE: The audio processing code is now *FIXED* and you can now download all the audio files in one go! 🎶</p>
 
     <div class="album-section">
-        <h3>🎵 UFORB INSANITY EDITION - The Rob 🎵</h3>
-        <p><strong>🎁 Redeem at:</strong> <a href="https://therob.lol" target="_blank">https://therob.lol</a> (Use in checkout for 100% discount!)</p>
-        
-        <div class="codes-grid">
-            <code>jja9w6zt</code>
-        </div>
+       more codes soon! 
     </div>
     
     <hr style="margin: 30px 0; border: 2px dashed #333;">
