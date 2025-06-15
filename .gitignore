@@ -33,3 +33,4 @@ node_modules/
 # Compiled assets
 *.min.css
 *.min.js
+blocked-emails.txt  # sensitive list, leave untracked
