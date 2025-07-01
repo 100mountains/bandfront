@@ -1,0 +1,36 @@
+# WordPress specific
+wp-config.php
+.htaccess
+
+# Development files
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# Backup files
+*.backup
+*.bak
+
+# Node modules (if any)
+node_modules/
+
+# Compiled assets
+*.min.css
+*.min.js
+blocked-emails.txt  # sensitive list, leave untracked

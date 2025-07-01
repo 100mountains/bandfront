@@ -1,0 +1,15 @@
+# Blocked Emails Example File
+# This is a template file showing the format for blocked email addresses.
+# Copy this file to 'blocked-emails.txt' and add your actual blocked addresses.
+# Each line should contain one email address to block.
+# Lines starting with '#' are comments and will be ignored.
+
+# Example blocked addresses (replace with your actual blocked emails):
+example1@spam.com
+example2@unwanted.net
+badactor@malicious.org
+spammer@fake-domain.xyz
+
+# You can also block entire domains by using wildcards:
+# *@spam-domain.com
+# *@another-bad-domain.net

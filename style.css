@@ -1,0 +1,429 @@
+/*
+Theme Name: Storefront Child 
+Theme URI: 
+Description: A child theme of the Storefront WordPress theme
+Author: 
+Author URI: 
+Template: storefront
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: storefront-staging
+*/
+@import url('my_account.css');
+
+/* Add your custom CSS styles below this line */
+
+/* thankyou page */
+
+.order_details.woocommerce-thankyou-order-details.woocommerce-order-overview
+{
+    font-family: 'BluuNext', Georgia, serif !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+
+    background-color: #000 !important;
+
+}
+
+.woocommerce-order-details .product-name.woocommerce-table__product-name,.product-total, tfoot > tr > th
+{
+
+font-family: 'BluuNext', Georgia, serif !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+
+    background-color: #000 !important;
+
+}
+
+.woocommerce-order-downloads .download-product,.download-remaining,.download-expires,.download-file
+{
+    font-family: 'BluuNext', Georgia, serif !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+
+    background-color: #000 !important;
+
+}
+
+/* FRONT END ADDITIONS NEW */
+
+.site-info
+{
+	display:none;
+}
+
+.site-header .site-search { 
+    display: none; 
+}
+.entry-header {
+	
+	margin-top: 16px !important;
+	margin-bottom: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+.entry-content
+{
+	margin: 15px !important;
+}
+
+.posted-on
+{
+	display:none;
+}
+.post-author
+{
+	display:none;
+}
+.post-comments
+{
+	display:none;
+}
+.entry-taxonomy
+{
+	display:none;
+}
+
+.page .entry-title
+{
+	display:none;
+}
+
+/* Main navigation menu */
+.main-navigation a,
+.primary-menu a,
+.nav-menu a,
+#primary-menu a,
+.site-navigation a {
+  font-family: 'Alacti', sans-serif !important;
+  font-size: 1.1rem !important;
+  line-height: 1.4 !important;
+  color: #f5f5f5 !important;
+  transition: color 0.2s ease !important;
+}
+
+/* Hover states */
+.main-navigation a:hover,
+.primary-menu a:hover,
+.nav-menu a:hover,
+#primary-menu a:hover,
+.site-navigation a:hover {
+   color: #8b3a3a !important;
+}
+
+
+/* Dropdown menus */
+.main-navigation ul ul,
+.primary-menu .sub-menu,
+.nav-menu .sub-menu {
+   background-color: rgba(20, 20, 20, 0.98) !important;
+   border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Cart dropdown menu background */
+.site-header-cart .widget_shopping_cart,
+.woocommerce-mini-cart,
+.cart_list,
+.woocommerce-mini-cart__contents,
+.widget_shopping_cart_content {
+   background-color: rgba(20, 20, 20, 0.98) !important;
+   border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* BluuNext for h1 and WooCommerce prices */
+.product h1,
+.woocommerce .price,
+.single-product .price {
+   font-family: 'BluuNext-Titling', Georgia, serif;
+   font-size: clamp(2rem, 3vw, 3rem);
+   font-weight: normal;
+   line-height: 1.1;
+   letter-spacing: -0.01em;
+}
+.product h1 {
+ color: #FD8F35;
+}
+
+/* Shop page product titles in orange */
+.woocommerce ul.products li.product .woocommerce-loop-product__title,
+.woocommerce-page ul.products li.product .woocommerce-loop-product__title {
+    color: #FD8F35 !important;
+}
+
+.product {
+	margin: 15px;
+   font-family: 'OpenSans-light', Georgia, serif;
+
+}
+
+/* END OF FRONT END ADDITIONS */
+
+
+
+/* bg */
+
+body {
+   background-color: #000;
+   color: #f5f5f5 ;
+}
+
+.site-header {
+   background-color: #000;
+}
+
+.site-footer {
+   background-color: #000;
+}
+
+/* HEADER font styles */
+/* Main navigation menu */
+.main-navigation a,
+.primary-menu a,
+.nav-menu a,
+#primary-menu a,
+.site-navigation a {
+  font-family: 'Alacti', sans-serif !important;
+  font-size: 1.1rem !important;
+  line-height: 1.4 !important;
+  color: #f5f5f5 !important;
+  transition: color 0.2s ease !important;
+}
+
+/* Hover states */
+.main-navigation a:hover,
+.primary-menu a:hover,
+.nav-menu a:hover,
+#primary-menu a:hover,
+.site-navigation a:hover {
+   color: #8b3a3a !important;
+}
+
+
+/* Clean shop view: only show image + title */
+
+.woocommerce ul.products li.product .price,
+.woocommerce ul.products li.product .button {
+    display: none !important;
+}
+
+.page-title.woocommerce-products-header__title
+{
+        display:none;
+}
+
+/* remove shop title and sorting  */
+div.storefront-sorting
+{
+        display:none;
+}
+.woocommerce-products-header
+{
+        display:none;
+}
+
+
+/* Music PLAYER SETTINGS */
+/* Base control area */
+.mejs-controls {
+	background-color: #000 !important;
+}
+
+/* Main play button — grey outline, dark base, light hover */
+.mejs-button {
+	background: #000 !important;
+	border: 1px solid #ccc !important; /* dark grey border */
+	transition: border 0.2s ease;
+}
+.mejs-button:hover {
+	border-color: #555 !important; /* lighter grey on hover */
+}
+
+/* Progress bar rail */
+.mejs-time-rail {
+	background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Unplayed total bar */
+.mejs-time-total {
+	background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Buffered progress */
+.mejs-time-loaded {
+	background: #FD8F35 !important;
+}
+
+/* Current playback position */
+.mejs-time-current {
+	background: #FD8F35 !important;
+}
+
+/* Scrubber handle — solid orange, no border */
+.mejs-time-handle {
+	background: #000 !important;
+	border: none !important;
+}
+
+/* Time boxes — black background only */
+.mejs-currenttime-container,
+.mejs-duration-container {
+	border: 0px !important;
+	background: #000 !important;
+}
+
+
+/* FONT STYLIN utility classes */
+
+/* BluuNext Font Classes */
+.bluu-text {
+    font-family: 'BluuNext', Georgia, serif !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+    color: #f5f5f5 !important;
+}
+
+.bluu-title {
+    font-family: 'BluuNext-Titling', Georgia, serif !important;
+    font-size: clamp(1.5rem, 3vw, 2.5rem) !important;
+    font-weight: normal !important;
+    line-height: 1 !important;
+    letter-spacing: -0.01em !important;
+     color: #f5f5f5 !important;
+}
+
+.bluu-large {
+    font-family: 'BluuNext-Titling', Georgia, serif !important;
+    font-size: clamp(2rem, 5vw, 4rem) !important;
+    font-weight: normal !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.bluu-small {
+    font-family: 'BluuNext', Georgia, serif !important;
+    font-size: 0.9rem !important;
+    line-height: 1.3 !important;
+    color: #f5f5f5 !important;
+}
+
+.bluu-tiny {
+    font-family: 'BluuNext', Georgia, serif !important;
+    font-size: 0.75rem !important;
+    line-height: 1.2 !important;
+    color: #cccccc !important;
+}
+
+.bluu-italic {
+    font-family: 'BluuNext', Georgia, serif !important;
+    font-style: italic !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+}
+
+/* Alacti Font Classes */
+.alacti-text {
+    font-family: 'Alacti', sans-serif !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+}
+
+.alacti-large {
+    font-family: 'Alacti', sans-serif !important;
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+}
+
+.alacti-small {
+    font-family: 'Alacti', sans-serif !important;
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+}
+
+/* Special Use Cases */
+.bluu-quote {
+    font-family: 'BluuNext', Georgia, serif !important;
+    font-style: italic !important;
+    font-size: 1.2rem !important;
+    line-height: 1.5 !important;
+    color: #ffd700 !important;
+}
+
+.bluu-accent {
+    font-family: 'BluuNext-Titling', Georgia, serif !important;
+    font-size: 1rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: #ff6b35 !important;
+}
+
+/* Only target MEJS player track titles in the product page table */
+.single-product .wcmp-player-title,
+.single-product .wcmp-column-player-title,
+.single-product td.wcmp-player-title,
+.single-product td.wcmp-column-player-title {
+    color: #FD8F35 !important;
+    
+
+}
+
+/* MEJS player background */
+/* Only target MEJS player track titles in the product page table */
+.single-product .wcmp-player-title, td{
+  background: #000 !important;
+}
+
+
+
+/* Product page MEJS player: lighten background on hover for track title links */
+.product .wcmp-player-title:hover {
+  background: #222 !important;
+}
+
+
+
+/* Make the expand caret half the size */
+.expand-button {
+    font-size: 0.6em !important;
+}
+
+.product-downloads h3 {
+    font-family: 'BluuNext-Titling', Georgia, serif !important;
+    font-size: clamp(1rem, 2vw, 1.3rem) !important;
+    font-weight: normal !important;
+    line-height: 1 !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* WooCommerce My Account navigation icons */
+.woocommerce-MyAccount-navigation-link--dashboard a::before {
+    font-family: 'FontAwesome';
+    content: "\f0e4"; /* Dashboard icon */
+}
+.woocommerce-MyAccount-navigation-link--orders a::before {
+    font-family: 'FontAwesome';
+    content: "\f291"; /* Shopping cart icon */
+}
+.woocommerce-MyAccount-navigation-link--downloads a::before {
+    font-family: 'FontAwesome';
+    content: "\f019"; /* Download icon */
+}
+.woocommerce-MyAccount-navigation-link--edit-address a::before {
+    font-family: 'FontAwesome';
+    content: "\f015"; /* Home icon */
+}
+.woocommerce-MyAccount-navigation-link--edit-account a::before {
+    font-family: 'FontAwesome';
+    content: "\f007"; /* User icon */
+}
+.woocommerce-MyAccount-navigation-link--customer-logout a::before {
+    font-family: 'FontAwesome';
+    content: "\f08b"; /* Sign out icon */
+}
+
+/* Add this for the Vault tab (fa-user-secret) */
+.woocommerce-MyAccount-navigation-link--vault a::before {
+    font-family: 'FontAwesome';
+    content: "\f21b";
+}
