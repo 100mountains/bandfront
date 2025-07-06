@@ -146,10 +146,10 @@ add_filter('manage_users_sortable_columns', function($columns) {
 
 function add_shop_page_footer_text() {
     if (is_shop()) {
-        echo '<div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border-left: 4px solid #0073aa; font-size: 14px; line-height: 1.6;">
-            <p><strong>therob.lol</strong> never processes, stores, or has access to your payment details.<br>
+        echo '<div class="shop-notice-banner">
+            <p><strong>therob.lol</strong> never processes, stores, or has access to your financial information, which remains completely private and protected.<br>
             All transactions are securely handled by PayPal using industry-standard encryption.<br>
-            Your financial information remains completely private and protected.</p>
+            </p>
         </div>';
     }
 }

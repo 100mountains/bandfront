@@ -1,5 +1,5 @@
 /*
-Theme Name: Storefront Child 
+Theme Name: Bandfront
 Theme URI: 
 Description: A child theme of the Storefront WordPress theme
 Author: 
@@ -8,7 +8,7 @@ Template: storefront
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: storefront-staging
+Text Domain: bandfront
 */
 @import url('my_account.css');
 
@@ -426,4 +426,44 @@ div.storefront-sorting
 .woocommerce-MyAccount-navigation-link--vault a::before {
     font-family: 'FontAwesome';
     content: "\f21b";
+}
+
+
+/* Mobile Theme Overrides - Added 2025-07-03 */
+
+
+
+    /* Your shop notice should now inherit proper styling */
+    .woocommerce-after-main-content div[style*="background"] {
+        background-color: #2a2a2a;
+        color: #ffffff;
+    }
+
+
+/* Shop Notice Banner - Consistent styling */
+.shop-notice-banner {
+  margin-top: 10px;
+  padding: 5px 5px 1px 20px;
+  background: #404040 !important;
+  border-left: 4px solid #0073aa;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #b0b0af;
+
+}
+
+}
+
+@media (max-width: 767px) {
+    .shop-notice-banner {
+  margin-top: 10px;
+  padding: 5px 5px 1px 20px;
+  background: #404040 !important;
+  border-left: 4px solid #0073aa;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #b0b0af;
+
+    }
+
 }
