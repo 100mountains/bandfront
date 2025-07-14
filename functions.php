@@ -54,6 +54,7 @@ add_action('template_redirect', function() {
 // Include separate files
 require_once get_stylesheet_directory() . '/audio-processing.php';
 require_once get_stylesheet_directory() . '/downloads-template.php';
+require_once get_stylesheet_directory() . '/inc/roles.php'; // Add this line
 
 function enqueue_download_all_script() {
     if (is_account_page()) {

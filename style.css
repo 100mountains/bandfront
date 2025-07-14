@@ -452,7 +452,6 @@ div.storefront-sorting
 
 }
 
-}
 
 @media (max-width: 767px) {
     .shop-notice-banner {
@@ -466,4 +465,24 @@ div.storefront-sorting
 
     }
 
+}
+
+/* Backstage Access Styles */
+.backstage-login-required,
+.backstage-membership-required {
+    background: rgba(253, 143, 53, 0.1);
+    border-left: 4px solid #FD8F35;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.backstage-login-required a,
+.backstage-membership-required a {
+    color: #FD8F35;
+    text-decoration: underline;
+}
+
+.backstage-login-required a:hover,
+.backstage-membership-required a:hover {
+    color: #ff6b35;
 }
