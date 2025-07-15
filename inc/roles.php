@@ -97,6 +97,18 @@ class BandfrontRoles {
      * Show access denied message
      */
     private static function show_access_denied_message() {
+        // Get the join page URL from plugin settings
+        $join_page_url = home_url('/become-a-backer/'); // Default fallback
+        
+        if (isset($GLOBALS['BandfrontMembers'])) {
+            $config = $GLOBALS['BandfrontMembers']->getConfig();
+            $join_page_id = $config->get('join_page');
+            
+            if ($join_page_id) {
+                $join_page_url = get_permalink($join_page_id);
+            }
+        }
+        
         get_header();
         ?>
         <div class="backstage-access-denied">
@@ -106,7 +118,7 @@ class BandfrontRoles {
                     <p>This content is exclusively available to our Bandfront Backers.</p>
                     <p>Join our community of supporters to access exclusive content, early releases, and behind-the-scenes material.</p>
                     <div class="backstage-actions">
-                        <a href="<?php echo home_url('/become-a-backer/'); ?>" class="button">Become a Backer</a>
+                        <a href="<?php echo esc_url($join_page_url); ?>" class="button">Become a Backer</a>
                         <a href="<?php echo home_url(); ?>" class="button secondary">Return Home</a>
                     </div>
                 </div>
@@ -165,9 +177,21 @@ class BandfrontRoles {
         }
         
         if (!self::user_has_backstage_access()) {
+            // Get the join page URL from plugin settings
+            $join_page_url = home_url('/become-a-backer/'); // Default fallback
+            
+            if (isset($GLOBALS['BandfrontMembers'])) {
+                $config = $GLOBALS['BandfrontMembers']->getConfig();
+                $join_page_id = $config->get('join_page');
+                
+                if ($join_page_id) {
+                    $join_page_url = get_permalink($join_page_id);
+                }
+            }
+            
             return '<div class="backstage-membership-required bluu-text">
                 <p>This content is for Bandfront Backers only.</p>
-                <p><a href="' . home_url('/become-a-backer/') . '">Become a Backer</a> to access exclusive content.</p>
+                <p><a href="' . esc_url($join_page_url) . '">Become a Backer</a> to access exclusive content.</p>
             </div>';
         }
         

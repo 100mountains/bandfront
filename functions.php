@@ -155,3 +155,21 @@ function add_shop_page_footer_text() {
     }
 }
 add_action('woocommerce_after_main_content', 'add_shop_page_footer_text');
+
+// Helper functions for accessing Bandfront Members plugin settings
+function get_bandfront_setting($key, $default = null) {
+    if (isset($GLOBALS['BandfrontMembers'])) {
+        return $GLOBALS['BandfrontMembers']->getConfig()->get($key, $default);
+    }
+    return $default;
+}
+
+function get_bandfront_join_page_url() {
+    $page_id = get_bandfront_setting('join_page');
+    return $page_id ? get_permalink($page_id) : home_url('/become-a-backer/');
+}
+
+function get_bandfront_posts_page_url() {
+    $page_id = get_bandfront_setting('posts_page');
+    return $page_id ? get_permalink($page_id) : '';
+}
