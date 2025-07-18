@@ -422,13 +422,6 @@ div.storefront-sorting
     content: "\f08b"; /* Sign out icon */
 }
 
-/* Add this for the Vault tab (fa-user-secret) */
-.woocommerce-MyAccount-navigation-link--vault a::before {
-    font-family: 'FontAwesome';
-    content: "\f21b";
-}
-
-
 /* Mobile Theme Overrides - Added 2025-07-03 */
 
 
@@ -467,135 +460,9 @@ div.storefront-sorting
 
 }
 
-/* Backstage Access Styles */
-.backstage-login-required,
-.backstage-membership-required {
-    background: rgba(253, 143, 53, 0.1);
-    border-left: 4px solid #FD8F35;
-    padding: 20px;
-    margin: 20px 0;
-}
+/* Remove the following sections:
+- Backstage Access Styles
+- Join Page styles (if moved to plugin)
+*/
 
-.backstage-login-required a,
-.backstage-membership-required a {
-    color: #FD8F35;
-    text-decoration: underline;
-}
-
-.backstage-login-required a:hover,
-.backstage-membership-required a:hover {
-    color: #ff6b35;
-}
-
-/* Join Page */
-
-.bfm-join-page {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    background: #000;
-    color: #ccc;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-.bfm-join-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.bfm-join-header h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-.bfm-tagline {
-    font-style: italic;
-    color: #666;
-}
-
-.bfm-join-warning,
-.bfm-join-terms,
-.bfm-join-manifesto,
-.bfm-join-application {
-    margin-bottom: 60px;
-}
-
-.bfm-join-warning {
-    border-left: 4px solid #dc3232;
-    padding-left: 20px;
-}
-
-.bfm-term-item {
-    display: flex;
-    margin-bottom: 30px;
-    align-items: flex-start;
-}
-
-.bfm-term-icon {
-    font-size: 32px;
-    margin-right: 20px;
-    flex-shrink: 0;
-}
-
-.bfm-term-content h3 {
-    margin-top: 0;
-    color: #fff;
-}
-
-.bfm-reluctant-form {
-    background: #111;
-    padding: 30px;
-    border: 1px solid #333;
-}
-
-.bfm-form-field {
-    margin-bottom: 25px;
-}
-
-.bfm-form-field label {
-    display: block;
-    margin-bottom: 8px;
-    color: #999;
-}
-
-.bfm-form-field input[type="checkbox"] {
-    margin-right: 8px;
-}
-
-.bfm-form-field textarea,
-.bfm-form-field select {
-    width: 100%;
-    background: #000;
-    border: 1px solid #444;
-    color: #ccc;
-    padding: 10px;
-}
-
-.bfm-submit-btn {
-    background: #333;
-    color: #999;
-    border: 1px solid #666;
-    padding: 12px 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.bfm-submit-btn:hover {
-    background: #444;
-    color: #ccc;
-}
-
-.bfm-join-footer {
-    text-align: center;
-    margin-top: 80px;
-    padding-top: 40px;
-    border-top: 1px solid #333;
-}
-
-.bfm-final-warning {
-    color: #666;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
+/* Keep the rest of your theme styles */

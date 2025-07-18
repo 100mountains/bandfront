@@ -1,5 +1,5 @@
-jQuery(document).ready(function($) {
-    // Dropdown open/close logic
+// This file has been moved to the player plugin
+// All download-related JavaScript is now handled by the plugin
     $('.download-all-files').on('click', function(e) {
         e.preventDefault();
         var $dropdown = $(this).closest('.download-dropdown');

@@ -51,51 +51,7 @@ add_action('template_redirect', function() {
     }
 });
 
-// Include separate files
-require_once get_stylesheet_directory() . '/audio-processing.php';
-require_once get_stylesheet_directory() . '/downloads-template.php';
-require_once get_stylesheet_directory() . '/inc/roles.php'; // Add this line
-
-function enqueue_download_all_script() {
-    if (is_account_page()) {
-        wp_enqueue_script('download-all', get_stylesheet_directory_uri() . '/js/download-all.js', array('jquery'), '1.0', true);
-        wp_localize_script('download-all', 'downloadAjax', array(
-            'ajaxurl' => admin_url('admin-ajax.php'),
-            'nonce' => wp_create_nonce('audio_conversion_nonce')
-        ));
-    }
-}
-add_action('wp_enqueue_scripts', 'enqueue_download_all_script');
-
-// 1. Register new endpoint for "vault"
-function storefront_add_vault_endpoint() {
-    add_rewrite_endpoint( 'vault', EP_ROOT | EP_PAGES );
-}
-add_action( 'init', 'storefront_add_vault_endpoint' );
-
-// 2. Add new query var
-function storefront_vault_query_vars( $vars ) {
-    $vars[] = 'vault';
-    return $vars;
-}
-add_filter( 'query_vars', 'storefront_vault_query_vars', 0 );
-
-// 3. Insert the new endpoint into the My Account menu
-function storefront_add_vault_link_my_account( $items ) {
-    // Place 'vault' before logout
-    $logout = $items['customer-logout'];
-    unset($items['customer-logout']);
-    $items['vault'] = 'Vault';
-    $items['customer-logout'] = $logout;
-    return $items;
-}
-add_filter( 'woocommerce_account_menu_items', 'storefront_add_vault_link_my_account' );
-
-// 4. Add content to the new tab
-function storefront_vault_content() {
-    include get_stylesheet_directory() . '/myaccount-vault.php';
-}
-add_action( 'woocommerce_account_vault_endpoint', 'storefront_vault_content' );
+// Removed download-related includes and functions as they have been moved to the player plugin
 
 function get_blocked_emails() {
     static $blocked_emails = null;
@@ -172,4 +128,21 @@ function get_bandfront_join_page_url() {
 function get_bandfront_posts_page_url() {
     $page_id = get_bandfront_setting('posts_page');
     return $page_id ? get_permalink($page_id) : '';
+}
+
+// Helper functions for accessing Bandfront Members plugin
+function is_bandfront_backer($user_id = null) {
+    if (isset($GLOBALS['BandfrontMembers'])) {
+        return $GLOBALS['BandfrontMembers']->getRoles()->userHasBackstageAccess($user_id);
+    }
+    return false;
+}
+
+function get_bandfront_join_url() {
+    if (isset($GLOBALS['BandfrontMembers'])) {
+        $config = $GLOBALS['BandfrontMembers']->getConfig();
+        $page_id = $config->get('join_page');
+        return $page_id ? get_permalink($page_id) : home_url('/become-a-backer/');
+    }
+    return home_url('/become-a-backer/');
 }

@@ -98,26 +98,73 @@ function handle_bulk_audio_processing() {
             return;
         }
 
+        // Get product name and sanitize for matching
+        $product_name = isset($product_files[0]['product_name']) ? $product_files[0]['product_name'] : '';
+        $sanitized_product_name = strtolower(preg_replace('/[^a-z0-9]+/', '-', $product_name));
+
         // Only process audio files
         $audio_extensions = ['wav', 'mp3', 'flac', 'aiff', 'alac', 'ogg'];
         $converted_files = array();
         $debug_info = array();
 
-        // Find and include the cover PNG with the nearest date to the first audio file
+        // Build audio_files array directly from WooCommerce downloads for this product
         $audio_files = array();
         foreach ($product_files as $download) {
             $file_path = $download['file']['file'];
             $ext = strtolower(pathinfo($file_path, PATHINFO_EXTENSION));
             if (in_array($ext, $audio_extensions)) {
-                $audio_files[] = $woo_upload_dir . '/2025/05/' . basename($file_path);
+                // Try to resolve the absolute path
+                $possible_paths = array();
+
+                // If it's already an absolute path
+                if (file_exists($file_path)) {
+                    $possible_paths[] = $file_path;
+                }
+
+                // Try relative to uploads dir
+                $upload_dir = wp_upload_dir();
+                $woo_upload_dir = $upload_dir['basedir'] . '/woocommerce_uploads';
+                if (strpos($file_path, '/wp-content/uploads/') === 0) {
+                    $possible_paths[] = $upload_dir['basedir'] . '/' . ltrim(substr($file_path, strlen('/wp-content/uploads/')), '/');
+                }
+                // Try in woocommerce_uploads
+                $possible_paths[] = $woo_upload_dir . '/' . basename($file_path);
+
+                // Try with year/month structure (if present in file path)
+                if (preg_match('#(\d{4})/(\d{2})#', $file_path, $matches)) {
+                    $possible_paths[] = $woo_upload_dir . '/' . $matches[1] . '/' . $matches[2] . '/' . basename($file_path);
+                }
+
+                // Try with just the basename in all subdirs
+                $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($woo_upload_dir));
+                foreach ($rii as $file) {
+                    if ($file->isFile() && $file->getFilename() === basename($file_path)) {
+                        $possible_paths[] = $file->getPathname();
+                    }
+                }
+
+                // Find the first existing file
+                $actual_file_path = null;
+                foreach ($possible_paths as $path) {
+                    if (file_exists($path)) {
+                        $actual_file_path = $path;
+                        break;
+                    }
+                }
+                if ($actual_file_path) {
+                    $audio_files[] = $actual_file_path;
+                } else {
+                    $debug_info[] = 'File not found: ' . basename($file_path);
+                }
             }
         }
+
+        // Find and include the cover PNG with the nearest date to the first audio file
         if (!empty($audio_files)) {
-            // Get the mtime of the first audio file
             $first_audio = $audio_files[0];
             $first_audio_time = file_exists($first_audio) ? filemtime($first_audio) : false;
-            $cover_dir = $woo_upload_dir . '/2025/05/';
-            $cover_files = glob($cover_dir . 'cover-*.png');
+            $cover_dir = dirname($first_audio);
+            $cover_files = glob($cover_dir . '/cover-*.png');
             $nearest_cover = null;
             $nearest_diff = PHP_INT_MAX;
             foreach ($cover_files as $cover_file) {
@@ -128,7 +175,7 @@ function handle_bulk_audio_processing() {
                 }
             }
             if ($nearest_cover) {
-                $dest = $temp_dir . '/cover.png'; // Always use 'cover.png' as the name in the zip
+                $dest = $temp_dir . '/cover.png';
                 if (copy($nearest_cover, $dest)) {
                     $converted_files[] = $dest;
                     error_log('Copied nearest cover image to: ' . $dest);
@@ -138,149 +185,92 @@ function handle_bulk_audio_processing() {
             }
         }
 
-        // Process each file
-        foreach ($product_files as $download) {
-            $file_path = $download['file']['file'];
-            $ext = strtolower(pathinfo($file_path, PATHINFO_EXTENSION));
-            // If it's an audio file, convert as before
-            if (in_array($ext, $audio_extensions)) {
-                // DEBUG: Log what we're getting from WooCommerce
-                error_log('=== FILE DEBUG ===');
-                error_log('Raw WC path: ' . $file_path);
-                error_log('Download array: ' . print_r($download, true));
-                
-                // Normalize file path if it starts with /wp-content/uploads/
-                $normalized_file_path = $file_path;
-                if (strpos($file_path, '/wp-content/uploads/') === 0) {
-                    $normalized_file_path = substr($file_path, strlen('/wp-content/uploads/'));
-                }
+        // Process each found audio file
+        foreach ($audio_files as $actual_file_path) {
+            $filename = pathinfo($actual_file_path, PATHINFO_FILENAME);
+            $extension = pathinfo($actual_file_path, PATHINFO_EXTENSION);
 
-                // Try multiple approaches to find the file
-                $possible_paths = array();
+            // --- Clean up filename for output ---
+            $clean_title = $filename;
+            $clean_title = preg_replace('/-[a-z0-9]{6,}$/i', '', $clean_title);
+            $clean_title = preg_replace('/-DIRECTORS-COMMENTARY-\d{4}$/i', '', $clean_title);
+            $clean_title = preg_replace('/-THE-ROB-REMASTER-\d{4}$/i', '', $clean_title);
+            $clean_title = preg_replace('/-GAPLESS-MIX$/i', '', $clean_title);
+            $clean_title = preg_replace('/--+/', '-', $clean_title);
+            $clean_title = trim($clean_title, '-_ ');
 
-                // If it's already an absolute path
-                if (path_is_absolute($file_path)) {
-                    $possible_paths[] = $file_path;
-                }
-
-                // If it's a relative path from uploads directory
-                $possible_paths[] = $upload_dir['basedir'] . '/' . ltrim($normalized_file_path, '/');
-
-                // If it's a path within woocommerce_uploads
-                $possible_paths[] = $woo_upload_dir . '/' . basename($file_path);
-
-                // Try with year/month structure
-                $possible_paths[] = $woo_upload_dir . '/2025/05/' . basename($file_path);
-
-                // Check if file path starts with 'woocommerce_uploads'
-                if (strpos($file_path, 'woocommerce_uploads') === 0) {
-                    $possible_paths[] = $upload_dir['basedir'] . '/' . $file_path;
-                }
-                
-                // Find the actual file
-                $actual_file_path = null;
-                foreach ($possible_paths as $path) {
-                    error_log('Checking path: ' . $path);
-                    if (file_exists($path)) {
-                        $actual_file_path = $path;
-                        error_log('FOUND FILE at: ' . $path);
-                        break;
-                    }
-                }
-                
-                if (!$actual_file_path) {
-                    $debug_info[] = 'File not found: ' . basename($file_path);
-                    error_log('ERROR: Could not find file: ' . $file_path);
-                    continue;
-                }
-
-                $filename = pathinfo($actual_file_path, PATHINFO_FILENAME);
-                $extension = pathinfo($actual_file_path, PATHINFO_EXTENSION);
-                
-                // Skip if already in target format
-                if (strtolower($extension) === $valid_format && $valid_format !== 'wav') {
-                    error_log('Skipping file already in target format: ' . $filename);
-                    continue;
-                }
-                
-                // Use the track title (download['file']['name']) for output filename, prepend track number if found in filename
-                $track_title = isset($download['file']['name']) ? $download['file']['name'] : $filename;
-                $safe_track_title = sanitize_file_name($track_title);
-                // Try to extract track number from the original filename (e.g., 01, 1, 1-)
-                $track_number = '';
-                if (preg_match('/(\d{2,3})/', basename($file_path), $matches)) {
-                    $track_number = $matches[1];
-                } elseif (preg_match('/(\d)/', basename($file_path), $matches)) {
-                    $track_number = '0' . $matches[1];
-                }
-                if ($track_number !== '') {
-                    $output_base = $track_number . ' - ' . $safe_track_title;
-                } else {
-                    $output_base = $safe_track_title;
-                }
-                $output_file = null;
-                $command = null;
-                
-                switch ($valid_format) {
-                    case 'mp3':
-                        $output_file = $temp_dir . '/' . $output_base . '.mp3';
-                        $command = sprintf('ffmpeg -i %s -codec:a libmp3lame -qscale:a 2 %s -y 2>&1',
-                            escapeshellarg($actual_file_path), escapeshellarg($output_file));
-                        break;
-                    case 'flac':
-                        $output_file = $temp_dir . '/' . $output_base . '.flac';
-                        $command = sprintf('ffmpeg -i %s -codec:a flac %s -y 2>&1',
-                            escapeshellarg($actual_file_path), escapeshellarg($output_file));
-                        break;
-                    case 'aiff':
-                        $output_file = $temp_dir . '/' . $output_base . '.aiff';
-                        $command = sprintf('ffmpeg -i %s -f aiff %s -y 2>&1',
-                            escapeshellarg($actual_file_path), escapeshellarg($output_file));
-                        break;
-                    case 'alac':
-                        $output_file = $temp_dir . '/' . $output_base . '.m4a';
-                        $command = sprintf('ffmpeg -i %s -codec:a alac %s -y 2>&1',
-                            escapeshellarg($actual_file_path), escapesshellarg($output_file));
-                        break;
-                    case 'ogg':
-                        $output_file = $temp_dir . '/' . $output_base . '.ogg';
-                        $command = sprintf('ffmpeg -i %s -codec:a libvorbis -qscale:a 5 %s -y 2>&1',
-                            escapeshellarg($actual_file_path), escapesshellarg($output_file));
-                        break;
-                    case 'wav':
-                        $output_file = $temp_dir . '/' . $output_base . '.wav';
-                        if (copy($actual_file_path, $output_file)) {
-                            $converted_files[] = $output_file;
-                            error_log('Copied WAV file to: ' . $output_file);
-                        } else {
-                            error_log('Failed to copy WAV file');
-                        }
-                        continue 2;
-                }
-                
-                // Execute conversion
-                if ($command) {
-                    error_log('Executing command: ' . $command);
-                    $output = array();
-                    $return_var = 0;
-                    exec($command, $output, $return_var);
-                    
-                    if ($return_var !== 0) {
-                        error_log('FFmpeg conversion failed with code ' . $return_var . ': ' . implode("\n", $output));
-                        $debug_info[] = 'Conversion failed for ' . basename($actual_file_path);
-                    } else {
-                        if (file_exists($output_file) && filesize($output_file) > 0) {
-                            $converted_files[] = $output_file;
-                            error_log('Successfully converted: ' . $output_file);
-                        } else {
-                            error_log('Output file not created or empty: ' . $output_file);
-                            $debug_info[] = 'Output file not created for ' . basename($actual_file_path);
-                        }
-                    }
-                }
+            $track_title = $clean_title;
+            $safe_track_title = sanitize_file_name($track_title);
+            $track_number = '';
+            if (preg_match('/(\d{2,3})/', $filename, $matches)) {
+                $track_number = $matches[1];
+            } elseif (preg_match('/(\d)/', $filename, $matches)) {
+                $track_number = '0' . $matches[1];
+            }
+            if ($track_number !== '') {
+                $output_base = $track_number . ' - ' . $safe_track_title;
             } else {
-                $debug_info[] = 'Skipped non-audio file: ' . basename($file_path);
-                error_log('Skipped non-audio file: ' . $file_path);
+                $output_base = $safe_track_title;
+            }
+            $output_file = null;
+            $command = null;
+
+            switch ($valid_format) {
+                case 'mp3':
+                    $output_file = $temp_dir . '/' . $output_base . '.mp3';
+                    $command = sprintf('ffmpeg -i %s -codec:a libmp3lame -qscale:a 2 %s -y 2>&1',
+                        escapeshellarg($actual_file_path), escapeshellarg($output_file));
+                    break;
+                case 'flac':
+                    $output_file = $temp_dir . '/' . $output_base . '.flac';
+                    $command = sprintf('ffmpeg -i %s -codec:a flac %s -y 2>&1',
+                        escapeshellarg($actual_file_path), escapeshellarg($output_file));
+                    break;
+                case 'aiff':
+                    $output_file = $temp_dir . '/' . $output_base . '.aiff';
+                    $command = sprintf('ffmpeg -i %s -f aiff %s -y 2>&1',
+                        escapeshellarg($actual_file_path), escapeshellarg($output_file));
+                    break;
+                case 'alac':
+                    $output_file = $temp_dir . '/' . $output_base . '.m4a';
+                    $command = sprintf('ffmpeg -i %s -codec:a alac %s -y 2>&1',
+                        escapeshellarg($actual_file_path), escapeshellarg($output_file));
+                    break;
+                case 'ogg':
+                    $output_file = $temp_dir . '/' . $output_base . '.ogg';
+                    $command = sprintf('ffmpeg -i %s -codec:a libvorbis -qscale:a 5 %s -y 2>&1',
+                        escapeshellarg($actual_file_path), escapeshellarg($output_file));
+                    break;
+                case 'wav':
+                    $output_file = $temp_dir . '/' . $output_base . '.wav';
+                    if (copy($actual_file_path, $output_file)) {
+                        $converted_files[] = $output_file;
+                        error_log('Copied WAV file to: ' . $output_file);
+                    } else {
+                        error_log('Failed to copy WAV file');
+                    }
+                    continue 2;
+            }
+
+            // Execute conversion
+            if ($command) {
+                error_log('Executing command: ' . $command);
+                $output = array();
+                $return_var = 0;
+                exec($command, $output, $return_var);
+                
+                if ($return_var !== 0) {
+                    error_log('FFmpeg conversion failed with code ' . $return_var . ': ' . implode("\n", $output));
+                    $debug_info[] = 'Conversion failed for ' . basename($actual_file_path);
+                } else {
+                    if (file_exists($output_file) && filesize($output_file) > 0) {
+                        $converted_files[] = $output_file;
+                        error_log('Successfully converted: ' . $output_file);
+                    } else {
+                        error_log('Output file not created or empty: ' . $output_file);
+                        $debug_info[] = 'Output file not created for ' . basename($actual_file_path);
+                    }
+                }
             }
         }
 
