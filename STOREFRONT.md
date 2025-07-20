@@ -1,3 +1,5 @@
+Storefront is the basic theme for woocommerce
+
 To customize the WooCommerce "My Account" page using the Storefront theme without paid plugins, you can employ code-based methods. Here's how:
 
 ICONS FOR MENU ITEMS 

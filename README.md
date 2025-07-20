@@ -13,21 +13,6 @@ A WordPress child theme extension for Storefront that transforms WooCommerce int
 - **Breadcrumbs Removed:**  
   Disables default WooCommerce breadcrumbs.
 
-- **My Account Page Customization:**  
-  - Redirects logged-out users from My Account to a custom login page.
-  - Adds a custom "Vault" tab to the My Account menu, with content loaded from `myaccount-vault.php`.
-
-- **Downloads Page Customization:**  
-  - Replaces the default WooCommerce downloads table with a custom template.
-  - Groups downloads by product, displays product images, and provides a "Download All As..." button for bulk audio conversion.
-
-- **Bulk Audio Conversion & Download:**  
-  - Users can download all audio files for a product in a selected format (WAV, MP3, FLAC, AIFF, ALAC, OGG).
-  - Uses FFmpeg for server-side conversion.
-  - Output filenames are cleaned and track-numbered.
-  - Includes the nearest cover image in the zip.
-  - Robust file resolution using WooCommerce's download array.
-
 - **Blocked Email Registration:**  
   - Prevents registration for emails listed in `blocked-emails.txt`.
 
@@ -36,11 +21,8 @@ Create a `blocked-emails.txt` file in the theme root with one email address per 
 The file is listed in `.gitignore`, so it will never be committed to the repository.  
 This allows each installation to maintain its own private block list.
 
-
 - **Custom Styles and Scripts:**  
   - Enqueues custom CSS for downloads UI.
-  - Enqueues and localizes JS for AJAX-powered bulk downloads.
-
 ---
 
 ## Installation

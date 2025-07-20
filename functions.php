@@ -146,3 +146,25 @@ function get_bandfront_join_url() {
     }
     return home_url('/become-a-backer/');
 }
+
+// Add debug to check if WooCommerce product loop is running
+add_action('woocommerce_before_shop_loop', function() {
+    error_log('[BFP DEBUG] woocommerce_before_shop_loop fired');
+});
+
+add_action('woocommerce_shop_loop', function() {
+    error_log('[BFP DEBUG] woocommerce_shop_loop fired');
+});
+
+add_action('woocommerce_after_shop_loop_item', function() {
+    error_log('[BFP DEBUG] woocommerce_after_shop_loop_item fired for product: ' . get_the_ID());
+}, 5); // Before our hook
+
+add_action('init', function() {
+    if (is_front_page()) {
+        error_log('[BFP DEBUG] On front page');
+    }
+    if (is_shop()) {
+        error_log('[BFP DEBUG] On shop page');
+    }
+});

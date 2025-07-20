@@ -359,10 +359,10 @@ div.storefront-sorting
 }
 
 /* Only target MEJS player track titles in the product page table */
-.single-product .wcmp-player-title,
-.single-product .wcmp-column-player-title,
-.single-product td.wcmp-player-title,
-.single-product td.wcmp-column-player-title {
+.single-product .bfp-player-title,
+.single-product .bfp-column-player-title,
+.single-product td.bfp-player-title,
+.single-product td.bfp-column-player-title {
     color: #FD8F35 !important;
     
 
@@ -370,14 +370,14 @@ div.storefront-sorting
 
 /* MEJS player background */
 /* Only target MEJS player track titles in the product page table */
-.single-product .wcmp-player-title, td{
+.single-product .bfp-player-title, td{
   background: #000 !important;
 }
 
 
 
 /* Product page MEJS player: lighten background on hover for track title links */
-.product .wcmp-player-title:hover {
+.product .bfp-player-title:hover {
   background: #222 !important;
 }
 
@@ -459,10 +459,3 @@ div.storefront-sorting
     }
 
 }
-
-/* Remove the following sections:
-- Backstage Access Styles
-- Join Page styles (if moved to plugin)
-*/
-
-/* Keep the rest of your theme styles */
