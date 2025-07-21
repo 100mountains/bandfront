@@ -10,86 +10,37 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: bandfront
 */
+
+/* Import additional stylesheets */
 @import url('my_account.css');
+@import url('woocommerce.css');
 
-/* Add your custom CSS styles below this line */
+/* ========================================
+   BASE STYLES & TYPOGRAPHY
+   ======================================== */
 
-/* thankyou page */
-
-.order_details.woocommerce-thankyou-order-details.woocommerce-order-overview
-{
-    font-family: 'BluuNext', Georgia, serif !important;
-    font-size: 1.1rem !important;
-    line-height: 1.4 !important;
-
-    background-color: #000 !important;
-
+/* Global Background & Text Colors */
+body {
+    background-color: #000;
+    color: #f5f5f5;
 }
 
-.woocommerce-order-details .product-name.woocommerce-table__product-name,.product-total, tfoot > tr > th
-{
-
-font-family: 'BluuNext', Georgia, serif !important;
-    font-size: 1.1rem !important;
-    line-height: 1.4 !important;
-
-    background-color: #000 !important;
-
+/* Site Structure */
+.site-header {
+    background-color: #000;
 }
 
-.woocommerce-order-downloads .download-product,.download-remaining,.download-expires,.download-file
-{
-    font-family: 'BluuNext', Georgia, serif !important;
-    font-size: 1.1rem !important;
-    line-height: 1.4 !important;
-
-    background-color: #000 !important;
-
+.site-footer {
+    background-color: #000;
 }
 
-/* FRONT END ADDITIONS NEW */
-
-.site-info
-{
-	display:none;
+.site-info {
+    display: none;
 }
 
-.site-header .site-search { 
-    display: none; 
-}
-.entry-header {
-	
-	margin-top: 16px !important;
-	margin-bottom: 0px !important;
-	padding-bottom: 0px !important;
-}
-
-.entry-content
-{
-	margin: 15px !important;
-}
-
-.posted-on
-{
-	display:none;
-}
-.post-author
-{
-	display:none;
-}
-.post-comments
-{
-	display:none;
-}
-.entry-taxonomy
-{
-	display:none;
-}
-
-.page .entry-title
-{
-	display:none;
-}
+/* ========================================
+   NAVIGATION
+   ======================================== */
 
 /* Main navigation menu */
 .main-navigation a,
@@ -97,11 +48,11 @@ font-family: 'BluuNext', Georgia, serif !important;
 .nav-menu a,
 #primary-menu a,
 .site-navigation a {
-  font-family: 'Alacti', sans-serif !important;
-  font-size: 1.1rem !important;
-  line-height: 1.4 !important;
-  color: #f5f5f5 !important;
-  transition: color 0.2s ease !important;
+    font-family: 'Alacti', sans-serif !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+    color: #f5f5f5 !important;
+    transition: color 0.2s ease !important;
 }
 
 /* Hover states */
@@ -110,171 +61,50 @@ font-family: 'BluuNext', Georgia, serif !important;
 .nav-menu a:hover,
 #primary-menu a:hover,
 .site-navigation a:hover {
-   color: #8b3a3a !important;
+    color: #8b3a3a !important;
 }
-
 
 /* Dropdown menus */
 .main-navigation ul ul,
 .primary-menu .sub-menu,
 .nav-menu .sub-menu {
-   background-color: rgba(20, 20, 20, 0.98) !important;
-   border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(20, 20, 20, 0.98) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Cart dropdown menu background */
-.site-header-cart .widget_shopping_cart,
-.woocommerce-mini-cart,
-.cart_list,
-.woocommerce-mini-cart__contents,
-.widget_shopping_cart_content {
-   background-color: rgba(20, 20, 20, 0.98) !important;
-   border: 1px solid rgba(255, 255, 255, 0.1) !important;
+/* ========================================
+   CONTENT STRUCTURE
+   ======================================== */
+
+.site-header .site-search { 
+    display: none; 
 }
 
-/* BluuNext for h1 and WooCommerce prices */
-.product h1,
-.woocommerce .price,
-.single-product .price {
-   font-family: 'BluuNext-Titling', Georgia, serif;
-   font-size: clamp(2rem, 3vw, 3rem);
-   font-weight: normal;
-   line-height: 1.1;
-   letter-spacing: -0.01em;
-}
-.product h1 {
- color: #FD8F35;
+.entry-header {
+    margin-top: 16px !important;
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
 }
 
-/* Shop page product titles in orange */
-.woocommerce ul.products li.product .woocommerce-loop-product__title,
-.woocommerce-page ul.products li.product .woocommerce-loop-product__title {
-    color: #FD8F35 !important;
+.entry-content {
+    margin: 15px !important;
 }
 
-.product {
-	margin: 15px;
-   font-family: 'OpenSans-light', Georgia, serif;
-
+/* Hide meta information */
+.posted-on,
+.post-author,
+.post-comments,
+.entry-taxonomy {
+    display: none;
 }
 
-/* END OF FRONT END ADDITIONS */
-
-
-
-/* bg */
-
-body {
-   background-color: #000;
-   color: #f5f5f5 ;
+.page .entry-title {
+    display: none;
 }
 
-.site-header {
-   background-color: #000;
-}
-
-.site-footer {
-   background-color: #000;
-}
-
-/* HEADER font styles */
-/* Main navigation menu */
-.main-navigation a,
-.primary-menu a,
-.nav-menu a,
-#primary-menu a,
-.site-navigation a {
-  font-family: 'Alacti', sans-serif !important;
-  font-size: 1.1rem !important;
-  line-height: 1.4 !important;
-  color: #f5f5f5 !important;
-  transition: color 0.2s ease !important;
-}
-
-/* Hover states */
-.main-navigation a:hover,
-.primary-menu a:hover,
-.nav-menu a:hover,
-#primary-menu a:hover,
-.site-navigation a:hover {
-   color: #8b3a3a !important;
-}
-
-
-/* Clean shop view: only show image + title */
-
-.woocommerce ul.products li.product .price,
-.woocommerce ul.products li.product .button {
-    display: none !important;
-}
-
-.page-title.woocommerce-products-header__title
-{
-        display:none;
-}
-
-/* remove shop title and sorting  */
-div.storefront-sorting
-{
-        display:none;
-}
-.woocommerce-products-header
-{
-        display:none;
-}
-
-
-/* Music PLAYER SETTINGS */
-/* Base control area */
-.mejs-controls {
-	background-color: #000 !important;
-}
-
-/* Main play button — grey outline, dark base, light hover */
-.mejs-button {
-	background: #000 !important;
-	border: 1px solid #ccc !important; /* dark grey border */
-	transition: border 0.2s ease;
-}
-.mejs-button:hover {
-	border-color: #555 !important; /* lighter grey on hover */
-}
-
-/* Progress bar rail */
-.mejs-time-rail {
-	background: rgba(255, 255, 255, 0.1) !important;
-}
-
-/* Unplayed total bar */
-.mejs-time-total {
-	background: rgba(255, 255, 255, 0.3) !important;
-}
-
-/* Buffered progress */
-.mejs-time-loaded {
-	background: #FD8F35 !important;
-}
-
-/* Current playback position */
-.mejs-time-current {
-	background: #FD8F35 !important;
-}
-
-/* Scrubber handle — solid orange, no border */
-.mejs-time-handle {
-	background: #000 !important;
-	border: none !important;
-}
-
-/* Time boxes — black background only */
-.mejs-currenttime-container,
-.mejs-duration-container {
-	border: 0px !important;
-	background: #000 !important;
-}
-
-
-/* FONT STYLIN utility classes */
+/* ========================================
+   TYPOGRAPHY UTILITY CLASSES
+   ======================================== */
 
 /* BluuNext Font Classes */
 .bluu-text {
@@ -290,7 +120,7 @@ div.storefront-sorting
     font-weight: normal !important;
     line-height: 1 !important;
     letter-spacing: -0.01em !important;
-     color: #f5f5f5 !important;
+    color: #f5f5f5 !important;
 }
 
 .bluu-large {
@@ -358,104 +188,71 @@ div.storefront-sorting
     color: #ff6b35 !important;
 }
 
-/* Only target MEJS player track titles in the product page table */
-.single-product .bfp-player-title,
-.single-product .bfp-column-player-title,
-.single-product td.bfp-player-title,
-.single-product td.bfp-column-player-title {
-    color: #FD8F35 !important;
-    
+/* ========================================
+   MEDIA PLAYER STYLES
+   ======================================== */
 
+/* Base control area */
+.mejs-controls {
+    background-color: #000 !important;
 }
 
-/* MEJS player background */
-/* Only target MEJS player track titles in the product page table */
-.single-product .bfp-player-title, td{
-  background: #000 !important;
+/* Main play button */
+.mejs-button {
+    background: #000 !important;
+    border: 1px solid #ccc !important;
+    transition: border 0.2s ease;
 }
 
-
-
-/* Product page MEJS player: lighten background on hover for track title links */
-.product .bfp-player-title:hover {
-  background: #222 !important;
+.mejs-button:hover {
+    border-color: #555 !important;
 }
 
-
-
-/* Make the expand caret half the size */
-.expand-button {
-    font-size: 0.6em !important;
+/* Progress bar rail */
+.mejs-time-rail {
+    background: rgba(255, 255, 255, 0.1) !important;
 }
 
-.product-downloads h3 {
-    font-family: 'BluuNext-Titling', Georgia, serif !important;
-    font-size: clamp(1rem, 2vw, 1.3rem) !important;
-    font-weight: normal !important;
-    line-height: 1 !important;
-    letter-spacing: -0.01em !important;
+/* Unplayed total bar */
+.mejs-time-total {
+    background: rgba(255, 255, 255, 0.3) !important;
 }
 
-/* WooCommerce My Account navigation icons */
-.woocommerce-MyAccount-navigation-link--dashboard a::before {
-    font-family: 'FontAwesome';
-    content: "\f0e4"; /* Dashboard icon */
-}
-.woocommerce-MyAccount-navigation-link--orders a::before {
-    font-family: 'FontAwesome';
-    content: "\f291"; /* Shopping cart icon */
-}
-.woocommerce-MyAccount-navigation-link--downloads a::before {
-    font-family: 'FontAwesome';
-    content: "\f019"; /* Download icon */
-}
-.woocommerce-MyAccount-navigation-link--edit-address a::before {
-    font-family: 'FontAwesome';
-    content: "\f015"; /* Home icon */
-}
-.woocommerce-MyAccount-navigation-link--edit-account a::before {
-    font-family: 'FontAwesome';
-    content: "\f007"; /* User icon */
-}
-.woocommerce-MyAccount-navigation-link--customer-logout a::before {
-    font-family: 'FontAwesome';
-    content: "\f08b"; /* Sign out icon */
+/* Buffered progress */
+.mejs-time-loaded {
+    background: #FD8F35 !important;
 }
 
-/* Mobile Theme Overrides - Added 2025-07-03 */
-
-
-
-    /* Your shop notice should now inherit proper styling */
-    .woocommerce-after-main-content div[style*="background"] {
-        background-color: #2a2a2a;
-        color: #ffffff;
-    }
-
-
-/* Shop Notice Banner - Consistent styling */
-.shop-notice-banner {
-  margin-top: 10px;
-  padding: 5px 5px 1px 20px;
-  background: #404040 !important;
-  border-left: 4px solid #0073aa;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #b0b0af;
-
+/* Current playback position */
+.mejs-time-current {
+    background: #FD8F35 !important;
 }
 
+/* Scrubber handle */
+.mejs-time-handle {
+    background: #000 !important;
+    border: none !important;
+}
+
+/* Time boxes */
+.mejs-currenttime-container,
+.mejs-duration-container {
+    border: 0px !important;
+    background: #000 !important;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE
+   ======================================== */
 
 @media (max-width: 767px) {
     .shop-notice-banner {
-  margin-top: 10px;
-  padding: 5px 5px 1px 20px;
-  background: #404040 !important;
-  border-left: 4px solid #0073aa;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #b0b0af;
-
+        margin-top: 10px;
+        padding: 5px 5px 1px 20px;
+        background: #404040 !important;
+        border-left: 4px solid #0073aa;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #b0b0af;
     }
-
 }

@@ -1,0 +1,455 @@
+/* ========================================
+   WOOCOMMERCE GLOBAL STYLES
+   ======================================== */
+
+/* WooCommerce wrapper */
+.woocommerce-page .content-area,
+.woocommerce .content-area {
+    background-color: #000;
+}
+
+/* ========================================
+   SHOP & PRODUCT GRID
+   ======================================== */
+
+/* Hide shop page elements */
+.page-title.woocommerce-products-header__title,
+div.storefront-sorting,
+.woocommerce-products-header {
+    display: none;
+}
+
+/* Clean shop view: only show image + title */
+.woocommerce ul.products li.product .price,
+.woocommerce ul.products li.product .button {
+    display: none !important;
+}
+
+/* Product grid styling */
+.woocommerce ul.products li.product {
+    background: rgba(20, 20, 20, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.woocommerce ul.products li.product:hover {
+    background: rgba(30, 30, 30, 0.8);
+    border-color: #FD8F35;
+    transform: translateY(-5px);
+}
+
+/* Shop page product titles */
+.woocommerce ul.products li.product .woocommerce-loop-product__title,
+.woocommerce-page ul.products li.product .woocommerce-loop-product__title {
+    color: #FD8F35 !important;
+    font-family: 'BluuNext', Georgia, serif !important;
+    font-size: 1.2rem !important;
+    margin-top: 10px !important;
+}
+
+/* ========================================
+   SINGLE PRODUCT PAGE
+   ======================================== */
+
+.product {
+    margin: 15px;
+    font-family: 'OpenSans-light', Georgia, serif;
+}
+
+/* Product titles and prices */
+.product h1,
+.woocommerce .price,
+.single-product .price {
+    font-family: 'BluuNext-Titling', Georgia, serif;
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: normal;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+.product h1 {
+    color: #FD8F35;
+}
+
+/* Product meta */
+.product_meta {
+    background: rgba(20, 20, 20, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.product_meta span {
+    color: #f5f5f5;
+}
+
+.product_meta a {
+    color: #FD8F35;
+    text-decoration: none;
+}
+
+/* ========================================
+   CART & MINI CART
+   ======================================== */
+
+/* Cart dropdown menu */
+.site-header-cart .widget_shopping_cart,
+.woocommerce-mini-cart,
+.cart_list,
+.woocommerce-mini-cart__contents,
+.widget_shopping_cart_content {
+    background-color: rgba(20, 20, 20, 0.98) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #f5f5f5 !important;
+}
+
+/* Mini cart items */
+.woocommerce-mini-cart li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 0;
+}
+
+.woocommerce-mini-cart li a {
+    color: #FD8F35 !important;
+    text-decoration: none;
+}
+
+.woocommerce-mini-cart li a:hover {
+    color: #ff9d5c !important;
+}
+
+/* Cart totals */
+.woocommerce-mini-cart__total {
+    background: #000;
+    padding: 15px;
+    border-top: 2px solid #FD8F35;
+}
+
+.woocommerce-mini-cart__total strong {
+    color: #f5f5f5;
+}
+
+/* Cart buttons */
+.woocommerce-mini-cart__buttons a {
+    background: #FD8F35 !important;
+    color: #000 !important;
+    border: none !important;
+    padding: 12px 20px !important;
+    border-radius: 4px !important;
+    font-family: 'Alacti', sans-serif !important;
+    transition: all 0.3s ease !important;
+    text-align: center !important;
+    display: block !important;
+    margin-bottom: 10px !important;
+}
+
+.woocommerce-mini-cart__buttons a:hover {
+    background: #ff9d5c !important;
+    transform: translateY(-2px);
+}
+
+/* Checkout button special styling */
+.woocommerce-mini-cart__buttons a.checkout {
+    background: #8b5cf6 !important;
+}
+
+.woocommerce-mini-cart__buttons a.checkout:hover {
+    background: #a78bfa !important;
+}
+
+/* ========================================
+   CART PAGE
+   ======================================== */
+
+.woocommerce-cart table.cart {
+    background: rgba(20, 20, 20, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.woocommerce-cart table.cart th {
+    background: #000;
+    color: #FD8F35;
+    font-family: 'BluuNext', Georgia, serif;
+    font-size: 1.1rem;
+    padding: 20px;
+}
+
+.woocommerce-cart table.cart td {
+    background: rgba(0, 0, 0, 0.3);
+    color: #f5f5f5;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Cart totals box */
+.cart_totals {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 30px;
+}
+
+.cart_totals h2 {
+    color: #FD8F35;
+    font-family: 'BluuNext-Titling', Georgia, serif;
+}
+
+/* ========================================
+   CHECKOUT PAGE
+   ======================================== */
+
+.woocommerce-checkout {
+    background: #000;
+}
+
+.woocommerce-checkout h3 {
+    color: #FD8F35;
+    font-family: 'BluuNext-Titling', Georgia, serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Form fields */
+.woocommerce-checkout .form-row input,
+.woocommerce-checkout .form-row textarea,
+.woocommerce-checkout .form-row select {
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #f5f5f5;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.woocommerce-checkout .form-row input:focus,
+.woocommerce-checkout .form-row textarea:focus,
+.woocommerce-checkout .form-row select:focus {
+    border-color: #FD8F35;
+    outline: none;
+}
+
+/* Order review */
+#order_review {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 30px;
+}
+
+#order_review_heading {
+    color: #FD8F35;
+}
+
+/* ========================================
+   THANK YOU / ORDER COMPLETE PAGE
+   ======================================== */
+
+.order_details.woocommerce-thankyou-order-details.woocommerce-order-overview {
+    font-family: 'BluuNext', Georgia, serif !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+    background-color: #000 !important;
+}
+
+.woocommerce-order-details .product-name.woocommerce-table__product-name,
+.product-total, 
+tfoot > tr > th {
+    font-family: 'BluuNext', Georgia, serif !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+    background-color: #000 !important;
+}
+
+.woocommerce-order-downloads .download-product,
+.download-remaining,
+.download-expires,
+.download-file {
+    font-family: 'BluuNext', Georgia, serif !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+    background-color: #000 !important;
+}
+
+/* Order details styling */
+.woocommerce-order-overview li,
+.woocommerce-order-details .woocommerce-table td,
+.woocommerce-customer-details address,
+.woocommerce-customer-details dt,
+.woocommerce-customer-details dd {
+    color: #ffffff !important;
+}
+
+/* ========================================
+   BUTTONS & FORMS
+   ======================================== */
+
+/* Primary buttons */
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+    background: #FD8F35 !important;
+    color: #000 !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    border-radius: 4px !important;
+    font-family: 'Alacti', sans-serif !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover {
+    background: #ff9d5c !important;
+    transform: translateY(-2px);
+}
+
+/* Alt buttons */
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+    background: #8b5cf6 !important;
+}
+
+.woocommerce #respond input#submit.alt:hover,
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce input.button.alt:hover {
+    background: #a78bfa !important;
+}
+
+/* ========================================
+   NOTICES & MESSAGES
+   ======================================== */
+
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+    background: rgba(20, 20, 20, 0.9) !important;
+    border-left: 4px solid #FD8F35 !important;
+    color: #f5f5f5 !important;
+}
+
+.woocommerce-error {
+    border-left-color: #e74c3c !important;
+}
+
+.woocommerce-message {
+    border-left-color: #27ae60 !important;
+}
+
+/* Shop notice banner */
+.shop-notice-banner {
+    margin-top: 10px;
+    padding: 5px 5px 1px 20px;
+    background: #404040 !important;
+    border-left: 4px solid #0073aa;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #b0b0af;
+}
+
+/* ========================================
+   PRODUCT SPECIFIC ELEMENTS
+   ======================================== */
+
+/* Product player titles */
+.single-product .bfp-player-title,
+.single-product .bfp-column-player-title,
+.single-product td.bfp-player-title,
+.single-product td.bfp-column-player-title {
+    color: #FD8F35 !important;
+}
+
+.single-product .bfp-player-title, td {
+    background: #000 !important;
+}
+
+.product .bfp-player-title:hover {
+    background: #222 !important;
+}
+
+/* Expand button */
+.expand-button {
+    font-size: 0.6em !important;
+}
+
+.product-downloads h3 {
+    font-family: 'BluuNext-Titling', Georgia, serif !important;
+    font-size: clamp(1rem, 2vw, 1.3rem) !important;
+    font-weight: normal !important;
+    line-height: 1 !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* ========================================
+   MODALS & POPUPS
+   ======================================== */
+
+/* Product quick view / popup modals */
+.woocommerce-modal,
+.woocommerce-popup,
+.product-quick-view {
+    background: rgba(0, 0, 0, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Related products slider */
+.related.products {
+    background: rgba(20, 20, 20, 0.3);
+    padding: 40px 0;
+    margin-top: 50px;
+}
+
+.related.products h2 {
+    color: #FD8F35;
+    font-family: 'BluuNext-Titling', Georgia, serif;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* ========================================
+   BREADCRUMBS
+   ======================================== */
+
+.woocommerce-breadcrumb {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.woocommerce-breadcrumb a {
+    color: #FD8F35;
+    text-decoration: none;
+}
+
+.woocommerce-breadcrumb a:hover {
+    color: #ff9d5c;
+}
+
+/* ========================================
+   PAGINATION
+   ======================================== */
+
+.woocommerce nav.woocommerce-pagination ul {
+    border: none;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f5f5f5;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a:hover {
+    background: #FD8F35;
+    color: #000;
+}
+
+.woocommerce nav.woocommerce-pagination ul li span.current {
+    background: #FD8F35;
+    color: #000;
+}
