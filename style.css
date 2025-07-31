@@ -12,8 +12,8 @@ Text Domain: bandfront
 */
 
 /* Import additional stylesheets */
-@import url('my_account.css');
-@import url('woocommerce.css');
+@import url('css/my_account.css');
+@import url('css/woocommerce.css');
 
 /* ========================================
    BASE STYLES & TYPOGRAPHY
@@ -189,56 +189,10 @@ body {
 }
 
 /* ========================================
-   MEDIA PLAYER STYLES
+   SLIDE OUT PRODUCT PANELS
    ======================================== */
-
-/* Base control area */
-.mejs-controls {
-    background-color: #000 !important;
-}
-
-/* Main play button */
-.mejs-button {
-    background: #000 !important;
-    border: 1px solid #ccc !important;
-    transition: border 0.2s ease;
-}
-
-.mejs-button:hover {
-    border-color: #555 !important;
-}
-
-/* Progress bar rail */
-.mejs-time-rail {
-    background: rgba(255, 255, 255, 0.1) !important;
-}
-
-/* Unplayed total bar */
-.mejs-time-total {
-    background: rgba(255, 255, 255, 0.3) !important;
-}
-
-/* Buffered progress */
-.mejs-time-loaded {
-    background: #FD8F35 !important;
-}
-
-/* Current playback position */
-.mejs-time-current {
-    background: #FD8F35 !important;
-}
-
-/* Scrubber handle */
-.mejs-time-handle {
-    background: #000 !important;
-    border: none !important;
-}
-
-/* Time boxes */
-.mejs-currenttime-container,
-.mejs-duration-container {
-    border: 0px !important;
-    background: #000 !important;
+.storefront-product-pagination a {
+    background-color: #1c1818f8 !important; 
 }
 
 /* ========================================
