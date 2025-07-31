@@ -14,6 +14,26 @@
     --border-subtle: rgba(255, 255, 255, 0.08);
 }
 
+/* Remove “Read more” and “Add to basket” buttons in the shop grid */
+.woocommerce ul.products li.product .button,
+.woocommerce ul.products li.product .added_to_cart {
+    display: none !important;
+}
+
+/* Hide price on the shop / archive grid */
+.woocommerce ul.products li.product .price {
+    display: none !important;
+}
+
+.woocommerce-product-gallery img {
+  
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
 /* ========================================
    SHOP GRID - MODERN MINIMAL
    ======================================== */
@@ -82,9 +102,62 @@ div.storefront-sorting,
     padding: 40px 0;
 }
 
+
+/* When images are inside summary, style them properly */
+.single-product .summary .woocommerce-product-gallery {
+    margin-bottom: 2em;
+    width: 100%;
+}
+
+/* Ensure product image maintains its space and prevents overlapping */
+.single-product .summary .woocommerce-product-gallery img.wp-post-image {
+    
+    margin-bottom: 1em !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 8px !important;
+}
+
+/* Hide the duplicate product title that appears above gallery when moved to summary */
+.single-product .summary .product_title {
+    display: none !important;
+}
+
+/* Make sure the product gallery in summary doesn't break layout */
+.img.wp-post-image {
+
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+   max-width: none;
+}
+
+/* Force cart form to appear below the product image */
+.single-product .summary form.cart {
+    order: 10 !important;
+    margin-top: 1em !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+    clear: both !important;
+}
+
+
+
+/* Make product title smaller (fallback) */
+.single-product .product .summary .product_title {
+    font-size: 1.2rem !important;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+
 /* image constriction fix on product page */
 .single-product .summary .woocommerce-product-gallery img.wp-post-image {
-    max-width: none;
+     
+    height: auto !important;
+    display: block  !important;
+    margin: 0 auto !important;
 }
 
 /* Product title */
@@ -474,13 +547,6 @@ div.storefront-sorting,
     }
 }
 
-/* Remove “Read more” and “Add to basket” buttons in the shop grid */
-.woocommerce ul.products li.product .button,
-.woocommerce ul.products li.product .added_to_cart {
-    display: none !important;
-}
 
-/* Hide price on the shop / archive grid */
-.woocommerce ul.products li.product .price {
-    display: none !important;
-}
+
+   
