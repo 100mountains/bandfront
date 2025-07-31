@@ -25,14 +25,18 @@
     display: none !important;
 }
 
-.woocommerce-product-gallery img {
-  
-    height: auto;
-    display: block;
-    margin: 0 auto;
+
+/* ========================================
+   SLIDE OUT PRODUCT PANELS
+   ======================================== */
+.storefront-product-pagination a {
+    background-color: #1c1818f8 !important; 
 }
 
-
+.storefront-sticky-add-to-cart {
+    color: #6d6d6d;
+    background-color: #2a2323 !important;
+}
 
 /* ========================================
    SHOP GRID - MODERN MINIMAL
@@ -122,15 +126,6 @@ div.storefront-sorting,
     display: none !important;
 }
 
-/* Make sure the product gallery in summary doesn't break layout */
-.img.wp-post-image {
-
-    height: auto !important;
-    display: block !important;
-    margin: 0 auto !important;
-   max-width: none;
-}
-
 /* Force cart form to appear below the product image */
 .single-product .summary form.cart {
     order: 10 !important;
@@ -154,7 +149,7 @@ div.storefront-sorting,
 
 /* image constriction fix on product page */
 .single-product .summary .woocommerce-product-gallery img.wp-post-image {
-     
+       max-width: none !important;
     height: auto !important;
     display: block  !important;
     margin: 0 auto !important;
