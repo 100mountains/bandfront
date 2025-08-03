@@ -101,11 +101,36 @@ div.storefront-sorting,
    SINGLE PRODUCT - EDITORIAL STYLE
    ========================================== */
 
-.product {
- 
-    padding: 40px 0;
+/* arrange product description section, span 2 columns and remove detritus */
+.single-product .woocommerce-tabs,
+.single-product .woocommerce-tabs .panel {      /* keeps inner panel tidy */
+    grid-column: 1 / -1;    /* from first to last column */
+    width: 97%;            /* insurance for older flex-based layouts */
+    clear: both;            /* insurance for float-based themes        */
+    padding-top: 0px;
+
 }
 
+.single-product .woocommerce-tabs .wc-tabs-wrapper{
+    padding-top: 0px;
+
+}
+
+.woocommerce-tabs .panel h2:first-of-type  {display:none;}
+
+
+.single-product ul.wc-tabs              {display:none;}
+
+
+/* main styles */
+.product {
+ 
+    padding: 10px 0;
+}
+
+.single-product div.product .product_meta {
+    display: none;
+}
 
 /* When images are inside summary, style them properly */
 .single-product .summary .woocommerce-product-gallery {
