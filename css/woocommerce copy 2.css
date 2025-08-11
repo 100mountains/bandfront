@@ -439,12 +439,13 @@ tfoot > tr > th {
 
 /* Shop notice banner */
 .shop-notice-banner {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background: #0a0a0a !important;
-    border-left: 3px solid #333;
-    font-size: 0.9rem;
-    color: #888;
+      margin-top: 10px;
+        padding: 5px 5px 1px 20px;
+        background: #404040 !important;
+        border-left: 4px solid #0073aa;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #b0b0af;
 }
 
 /* ========================================

@@ -147,10 +147,7 @@
     transition: all 0.3s ease;
 }
 
-.woocommerce-MyAccount-content .button:hover {
-    background: #f0f0f0 !important;
-    transform: translateY(-2px);
-}
+
 
 /* Forms */
 .woocommerce-MyAccount-content input[type="text"],
