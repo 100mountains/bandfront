@@ -101,21 +101,6 @@ add_filter('registration_errors', 'block_specific_emails', 10, 3);
 # Page Template Styles
 --------------------------------------------------------------*/
 
-/**
- * Enqueue CSS for page-list-cat template
- */
-function enqueue_page_list_cat_css() {
-    if (is_page_template('page-list-cat.php')) {
-        wp_enqueue_style(
-            'page-list-cat-style',
-            get_stylesheet_directory_uri() . '/page-list-cat.css',
-            array(),
-            '1.0'
-        );
-    }
-}
-add_action('wp_enqueue_scripts', 'enqueue_page_list_cat_css');
-
 /*--------------------------------------------------------------
 # User Admin Columns
 --------------------------------------------------------------*/
