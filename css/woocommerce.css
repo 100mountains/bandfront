@@ -351,7 +351,7 @@ div.storefront-sorting,
 .woocommerce input.button:hover {
     background: rgba(255, 255, 255, 0.05) !important;
     border-color: rgba(255, 255, 255, 0.15) !important;
-    transform: translateY(-1px);
+   
 }
 
 /* Primary CTA buttons */
